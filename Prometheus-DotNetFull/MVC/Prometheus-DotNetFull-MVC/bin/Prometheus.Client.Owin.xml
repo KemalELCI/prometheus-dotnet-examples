@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prometheus.Client.Owin</name>
+    </assembly>
+    <members>
+        <member name="T:Prometheus.Client.Owin.PrometheusExtensions">
+            <summary>
+                PrometheusExtensions
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Owin.PrometheusExtensions.UsePrometheusServer(Owin.IAppBuilder)">
+            <summary>
+                Add PrometheusServer request execution pipeline.
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Owin.PrometheusExtensions.UsePrometheusServer(Owin.IAppBuilder,System.Action{Prometheus.Client.Owin.PrometheusOptions})">
+            <summary>
+                Add PrometheusServer request execution pipeline.
+            </summary>
+        </member>
+        <member name="T:Prometheus.Client.Owin.PrometheusOptions">
+            <summary>
+                Options for Prometheus
+            </summary>
+        </member>
+        <member name="P:Prometheus.Client.Owin.PrometheusOptions.MapPath">
+            <summary>
+                Url, default = "/metrics"
+            </summary>
+        </member>
+        <member name="P:Prometheus.Client.Owin.PrometheusOptions.CollectorRegistryInstance">
+            <summary>
+                CollectorRegistry instance
+            </summary>
+        </member>
+        <member name="P:Prometheus.Client.Owin.PrometheusOptions.Collectors">
+            <summary>
+                IOnDemandCollectors
+            </summary>
+        </member>
+        <member name="P:Prometheus.Client.Owin.PrometheusOptions.UseDefaultCollectors">
+            <summary>
+                Use default collectors
+            </summary>
+        </member>
+    </members>
+</doc>

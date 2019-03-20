@@ -1,0 +1,439 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prometheus.Client</name>
+    </assembly>
+    <members>
+        <member name="T:Prometheus.Client.Abstractions.ICounter">
+            <summary>
+                Counter metric type
+                <remarks>
+                    https://prometheus.io/docs/concepts/metric_types/#counter
+                </remarks>
+            </summary>
+        </member>
+        <member name="T:Prometheus.Client.Abstractions.IGauge">
+            <summary>
+                Gauge metric type
+                <remarks>
+                    https://prometheus.io/docs/concepts/metric_types/#gauge
+                </remarks>
+            </summary>
+        </member>
+        <member name="T:Prometheus.Client.Abstractions.IHistogram">
+            <summary>
+                Histogram metric type
+                <remarks>
+                    https://prometheus.io/docs/concepts/metric_types/#histogram
+                </remarks>
+            </summary>
+        </member>
+        <member name="T:Prometheus.Client.Abstractions.ISummary">
+            <summary>
+                Summary metric type
+                <remarks>
+                    https://prometheus.io/docs/concepts/metric_types/#summary
+                </remarks>
+            </summary>
+        </member>
+        <member name="T:Prometheus.Client.Abstractions.IUntyped">
+            <summary>
+                Untyped metric type
+            </summary>
+        </member>
+        <member name="T:Prometheus.Client.Collectors.Abstractions.IOnDemandCollector">
+            <summary>
+                interface for On Demand Collector
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.Abstractions.IOnDemandCollector.RegisterMetrics">
+            <summary>
+                Register metrics
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.Abstractions.IOnDemandCollector.UpdateMetrics">
+            <summary>
+                Update metrics
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.Collector`1.Labels(System.String[])">
+            <summary>
+                Analog WithLabels for compatible with old version
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.Collector`1.WithLabels(System.String[])">
+            <summary>
+                Metric with Label Values
+            </summary>
+        </member>
+        <member name="T:Prometheus.Client.Collectors.DefaultCollectors">
+            <summary>
+                All default Collector
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.DefaultCollectors.Get(Prometheus.Client.MetricFactory)">
+            <summary>
+                Get default Collector
+            </summary>
+        </member>
+        <member name="T:Prometheus.Client.Collectors.DotNetStatsCollector">
+            <inheritdoc />
+            <summary>
+                Collects metrics on .net without performance counters
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.DotNetStatsCollector.#ctor">
+            <inheritdoc />
+            <summary>
+                Constructors
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.DotNetStatsCollector.#ctor(Prometheus.Client.MetricFactory)">
+            <summary>
+                Constructors
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.DotNetStatsCollector.RegisterMetrics">
+            <inheritdoc />
+        </member>
+        <member name="T:Prometheus.Client.Collectors.PerfCounterCollector">
+            <inheritdoc />
+            <summary>
+                Collects metrics on standard Performance Counters
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.PerfCounterCollector.#ctor">
+            <summary>
+                Constructor
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.PerfCounterCollector.#ctor(Prometheus.Client.MetricFactory)">
+            <summary>
+                Constructor
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.PerfCounterCollector.RegisterMetrics">
+            <summary>
+                Register metrics
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.PerfCounterCollector.UpdateMetrics">
+            <summary>
+                Update metrics
+            </summary>
+        </member>
+        <member name="T:Prometheus.Client.Collectors.ProcessCollector">
+            <inheritdoc />
+            <summary>
+                Collects metrics on .net without performance counters
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.ProcessCollector.#ctor">
+            <inheritdoc />
+            <summary>
+                Constructors
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.ProcessCollector.#ctor(Prometheus.Client.MetricFactory)">
+            <summary>
+                Constructors
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Collectors.ProcessCollector.RegisterMetrics">
+            <inheritdoc />
+        </member>
+        <member name="T:Prometheus.Client.Counter">
+            <inheritdoc cref="T:Prometheus.Client.Abstractions.ICounter" />
+        </member>
+        <member name="T:Prometheus.Client.Gauge">
+            <inheritdoc cref="T:Prometheus.Client.Abstractions.IGauge" />
+        </member>
+        <member name="T:Prometheus.Client.Histogram">
+            <inheritdoc cref="T:Prometheus.Client.Abstractions.IHistogram" />
+        </member>
+        <member name="P:Prometheus.Client.Histogram.Type">
+            <summary>
+                Metric Type
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateCounter(System.String,System.String,System.String[])">
+            <summary>
+                Create Counter
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateCounter(System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+                Create  Counter
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateGauge(System.String,System.String,System.String[])">
+            <summary>
+                Create Gauge
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateGauge(System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+                Create Gauge
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateUntyped(System.String,System.String,System.String[])">
+            <summary>
+                Create Untyped
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateUntyped(System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+                Create Untyped
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateSummary(System.String,System.String,System.String[])">
+            <summary>
+                Create Summary
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateSummary(System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+                Create Summary
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateSummary(System.String,System.String,System.String[],System.Collections.Generic.IList{Prometheus.Client.SummaryImpl.QuantileEpsilonPair},System.TimeSpan,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+                Create Summary
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="labelNames">Array of label names</param>
+            <param name="objectives"></param>
+            <param name="maxAge"></param>
+            <param name="ageBuckets"></param>
+            <param name="bufCap"></param>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateSummary(System.String,System.String,System.Boolean,System.String[],System.Collections.Generic.IList{Prometheus.Client.SummaryImpl.QuantileEpsilonPair},System.Nullable{System.TimeSpan},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+                Create Summary
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="labelNames">Array of label names</param>
+            <param name="objectives"></param>
+            <param name="maxAge"></param>
+            <param name="ageBuckets"></param>
+            <param name="bufCap"></param>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateHistogram(System.String,System.String,System.String[])">
+            <summary>
+                Create Histogram
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateHistogram(System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+                Create Histogram
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateHistogram(System.String,System.String,System.Double[],System.String[])">
+            <summary>
+                Create Histogram
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="buckets">Buckets</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.MetricFactory.CreateHistogram(System.String,System.String,System.Boolean,System.Double[],System.String[])">
+            <summary>
+                Create Histogram
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="buckets">Buckets</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="T:Prometheus.Client.Metrics">
+            <summary>
+                Metrics creator
+            </summary>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateCounter(System.String,System.String,System.String[])">
+            <summary>
+                Create Counter
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateCounter(System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+                Create  Counter
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateGauge(System.String,System.String,System.String[])">
+            <summary>
+                Create Gauge
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateGauge(System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+                Create Gauge
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateUntyped(System.String,System.String,System.String[])">
+            <summary>
+                Create Untyped
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateUntyped(System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+                Create Untyped
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateSummary(System.String,System.String,System.String[])">
+            <summary>
+                Create Summary
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateSummary(System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+                Create Summary
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateSummary(System.String,System.String,System.String[],System.Collections.Generic.IList{Prometheus.Client.SummaryImpl.QuantileEpsilonPair},System.TimeSpan,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+                Create Summary
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="labelNames">Array of label names</param>
+            <param name="objectives"></param>
+            <param name="maxAge"></param>
+            <param name="ageBuckets"></param>
+            <param name="bufCap"></param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateSummary(System.String,System.String,System.Boolean,System.String[],System.Collections.Generic.IList{Prometheus.Client.SummaryImpl.QuantileEpsilonPair},System.Nullable{System.TimeSpan},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+                Create Summary
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="labelNames">Array of label names</param>
+            <param name="objectives"></param>
+            <param name="maxAge"></param>
+            <param name="ageBuckets"></param>
+            <param name="bufCap"></param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateHistogram(System.String,System.String,System.String[])">
+            <summary>
+                Create Histogram
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateHistogram(System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+                Create Histogram
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateHistogram(System.String,System.String,System.Double[],System.String[])">
+            <summary>
+                Create Histogram
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="buckets">Buckets</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.CreateHistogram(System.String,System.String,System.Boolean,System.Double[],System.String[])">
+            <summary>
+                Create Histogram
+            </summary>
+            <param name="name">Name</param>
+            <param name="help">Help text</param>
+            <param name="includeTimestamp">Include unix timestamp for metric</param>
+            <param name="buckets">Buckets</param>
+            <param name="labelNames">Array of label names</param>
+        </member>
+        <member name="M:Prometheus.Client.Metrics.WithCustomRegistry(Prometheus.Client.Collectors.Abstractions.ICollectorRegistry)">
+            <summary>
+                Create MetricFactory with custom Registry
+            </summary>
+        </member>
+        <member name="T:Prometheus.Client.Summary">
+            <inheritdoc cref="T:Prometheus.Client.Abstractions.ISummary" />
+        </member>
+        <member name="M:Prometheus.Client.Summary.LabelledSummary.Observe(System.Double,System.DateTime)">
+            <summary>
+                For unit tests only
+            </summary>
+        </member>
+        <member name="T:Prometheus.Client.Untyped">
+            <inheritdoc cref="T:Prometheus.Client.Abstractions.IUntyped" />
+        </member>
+    </members>
+</doc>
